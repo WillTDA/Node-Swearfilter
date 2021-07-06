@@ -27,6 +27,9 @@ const filter = new Filter({
 });
 
 client.on("message", async message => {
+
+    if (message.author.bot || message.channel.type === "dm") return;
+
     if (filter.containsSwearWord(message.content)) {
         await message.delete();
         message.reply("https://youtu.be/un38j-pKLWE?t=358");
