@@ -1,0 +1,28 @@
+{
+  "name": "swearfilter",
+  "version": "0.0.1",
+  "description": "Detect Swear Words, and Handle Strings Containing Them. Smart Detection helps to Detect Words using Leetspeak, or any other Word Circumvention Methods.",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "swear",
+    "censor",
+    "swear word",
+    "word filter",
+    "swear filter",
+    "swearfilter",
+    "swear word filter",
+    "profanity",
+    "filter",
+    "discord",
+    "discord.js",
+    "discord.js-swearfilter"
+  ],
+  "author": "WillTDA",
+  "license": "ISC",
+  "dependencies": {
+    "leet-decode": "^0.0.3"
+  }
+}
