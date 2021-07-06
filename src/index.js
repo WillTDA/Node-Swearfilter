@@ -1,4 +1,4 @@
-const { decode } = require("leet-decode");
+const decode = require("@cityssm/unleet").unleet
 const { filterWords } = require("./functions/filter");
 
 /**
@@ -36,24 +36,24 @@ class Filter {
         Object.assign(this.options, options);
     }
     /**
-* @param {Discord.Message} message The Message Sent by the User.
+* @param {string} string The String to Test for Bad Words.
 * @returns Boolean
 * @example
 * const { Filter } = require("swearfilter"); 
 * 
 * const filter = new Filter({
-* swearWords: ["bad", "words", "here"],
-* smartDetect: true,
-* useBaseFilter: false
+*     swearWords: ["bad", "words", "here"],
+*     smartDetect: true,
+*     useBaseFilter: false
 * });
 * 
 * if (filter.containsSwearWord("b @ d")) {
-*     await message.delete();
-*     message.channel.send("Hey, don't send that here!");
+*     console.log("A bad word was said!")
 * }
 */
-    containsSwearWord(message) {
-        if (!message) return console.log("Swear Filter Error: Message was not Provided. Need Help? Join Our Discord Server at 'https://discord.gg/P2g24jp'");
+    containsSwearWord(string) {
+        if (!string) return console.log("Swear Filter Error: String was not Provided. Need Help? Join Our Discord Server at 'https://discord.gg/P2g24jp'");
+        if (typeof string !== "string") return console.log("Swear Filter Error: The Parameter Provided was not of type 'string'. Need Help? Join Our Discord Server at 'https://discord.gg/P2g24jp'");
 
         let words, value;
         let leetConfig = require("./config/leetAlphabetConfig.json").configs
@@ -67,7 +67,7 @@ class Filter {
         }
 
         if (this.options.smartDetect) {
-            let decodedStrings = decode(message.content);
+            let decodedStrings = decode(string);
             for (let i = 0; i < decodedStrings.length; i++) {
                 const configObj = {
                     wordsToFilter: words,
@@ -89,7 +89,7 @@ class Filter {
                 }
             }
         } else {
-            if (words.some(word => message.content.includes(word))) {
+            if (words.some(word => string.includes(word))) {
                 value = true;
                 return value;
             } else {
