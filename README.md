@@ -15,8 +15,8 @@ To Install this Powerful Word-Filtering Tool, open Your Project's Terminal and t
 Most of my NPM package users are Discord.js Bot Developers. For you guys, there's an example of how to use it in your bots!
 
 ```js
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const { Client, Intents } = require("discord.js");
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 const { Filter } = require("swearfilter");
 
@@ -26,9 +26,9 @@ const filter = new Filter({
     useBaseFilter: false
 });
 
-client.on("message", async message => {
+client.on("messageCreate", async message => {
 
-    if (message.author.bot || message.channel.type === "dm") return;
+    if (message.author.bot || message.channel.type === "DM") return;
 
     if (filter.containsSwearWord(message.content)) {
         await message.delete();
