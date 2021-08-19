@@ -85,7 +85,7 @@ class Filter {
                 }
                 else {
                     value = false;
-                    return value;
+                    if (i === decodedStrings.length - 1) return value;
                 }
             }
         } else {
