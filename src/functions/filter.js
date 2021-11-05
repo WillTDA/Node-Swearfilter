@@ -160,9 +160,9 @@ const filterWords = (configObj) => {
         (concatenatedWords.indexOf(word) != -1 && wordsToFilter.includes(concatenatedWords)) ||
         (translatedLeet1.indexOf(word) != -1 && wordsToFilter.includes(translatedLeet1)) ||
         (translatedLeet2.indexOf(word) != -1 && wordsToFilter.includes(translatedLeet2)) ||
-        (stringNoConsecutiveDuplicate.indexOf(word) != -1 && stringNoConsecutiveDuplicate.some(word => wordsToFilter.includes(word))) ||
-        (individualWordsLeeted1.includes(word) === true && individualWordsLeeted1.some(word => wordsToFilter.includes(word))) ||
-        (individualWordsLeeted2.includes(word) === true && individualWordsLeeted2.some(word => wordsToFilter.includes(word))))
+        (stringNoConsecutiveDuplicate.indexOf(word) != -1) ||
+        (individualWordsLeeted1.includes(word) === true) ||
+        (individualWordsLeeted2.includes(word) === true))
 
     ) {
       foundWords.push(word);
