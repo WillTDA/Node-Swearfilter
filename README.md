@@ -22,6 +22,7 @@ const { Filter } = require("swearfilter");
 
 const filter = new Filter({
     swearWords: ["bad", "words", "here"],
+    uncensoredWords: ["any", "words", "to", "ignore", "here"],
     smartDetect: true,
     useBaseFilter: false
 });
@@ -50,6 +51,7 @@ const { Filter } = require("swearfilter");
 
 const filter = new Filter({
     swearWords: ["bad", "words", "here"],
+    uncensoredWords: ["any", "words", "to", "ignore", "here"],
     smartDetect: true,
     useBaseFilter: false
 });
