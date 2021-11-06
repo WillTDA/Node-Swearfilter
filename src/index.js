@@ -40,7 +40,7 @@ class Filter {
         options.uncensoredWords = options.uncensoredWords || [];
         options.smartDetect = options.smartDetect || true;
         options.useBaseFilter = options.useBaseFilter || false;
-        
+
         this.options = options;
         Object.assign(this.options, options);
     }
@@ -80,7 +80,7 @@ class Filter {
         if (this.options.smartDetect) {
             let decodedStrings = unleet(string);
             for (let i = 0; i < decodedStrings.length; i++) {
-                const configObj = {
+                let foundWords = filterWords({
                     wordsToFilter: words,
                     stringToCheck: decodedStrings[i],
                     lengthThreshold: 3,
@@ -88,8 +88,7 @@ class Filter {
                     leetAlphabet2: leetConfig[1],
                     shortWordLength: 2,
                     shortWordExceptions: []
-                };
-                let foundWords = filterWords(configObj);
+                });
                 if (foundWords.length >= 1) {
                     value = true;
                     return value;
