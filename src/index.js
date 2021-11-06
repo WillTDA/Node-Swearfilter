@@ -25,7 +25,7 @@ class Filter {
     * 
     * const filter = new Filter({
     *     swearWords: ["bad", "words", "here"],
-    *     uncensoredWords: ["any", "words", "to", "ignore", "here"],
+    *     uncensoredWords: ["words", "to", "ignore"],
     *     smartDetect: true,
     *     useBaseFilter: false
     * });
@@ -52,7 +52,7 @@ class Filter {
     * 
     * const filter = new Filter({
     *     swearWords: ["bad", "words", "here"],
-    *     uncensoredWords: ["any", "words", "to", "ignore", "here"],
+    *     uncensoredWords: ["words", "to", "ignore"],
     *     smartDetect: true,
     *     useBaseFilter: false
     * });

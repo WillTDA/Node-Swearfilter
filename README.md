@@ -1,73 +1,42 @@
-# Swear Filter
+<h1 align="center">
+🤬 Swear Filter 🤬
+</h1>
 
-Detect Swear Words, and Handle Strings Containing Them. Smart Detection helps to Detect Words using Leetspeak, or any other Word Circumvention Methods.
+Swear Filter is designed to detect swear words, and handle strings containing them.
 
-Unlike other filters, this smart algorithm can solve the Scunthorpe Problem, meaning the user's content won't get flagged next time they say the word "grass". 😅
+## Features
 
-# Install Package
+- 🧠 <b>Smart Detection</b> | Detects words using leetspeak, or any other filter loopholes. It can also fix the Scunthorpe Problem, meaning the word "grass" won't get flagged.
 
-To Install this Powerful Word-Filtering Tool, open Your Project's Terminal and type:
+- 💬 <b>Base Filter</b> | This package contains a base filter, and when activated, will attempt to detect over 2,000 swear words.
+
+- 📝 <b>Very Customizable</b> | You can easily add or remove words from the filter.
+
+- 📦 <b>Quick and Easy Setup</b> | Setting up a filter takes only a few seconds.
+
+## Install Package
+
+To install this powerful word-filtering tool, open your project's terminal and type:
 
 `npm i swearfilter --save`
 
-# Examples
-
-Most of my NPM package users are Discord.js Bot Developers. For you guys, there's an example of how to use it in your bots!
+## Example Usage
 
 ```js
-const { Client, Intents } = require("discord.js");
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-
 const { Filter } = require("swearfilter");
-
 const filter = new Filter({
-    swearWords: ["bad", "words", "here"],
-    uncensoredWords: ["any", "words", "to", "ignore", "here"],
-    smartDetect: true,
-    useBaseFilter: false
+    swearWords: ["bad", "words", "here"], // Add your own custom words here.
+    uncensoredWords: ["words", "to", "ignore"], // Specify words to ignore here.
+    smartDetect: true, // Enable smart detection. (Defaults to true)
+    useBaseFilter: false // Disable the base filter. (Defaults to false)
 });
 
-client.on("messageCreate", async message => {
-
-    if (message.author.bot || message.channel.type === "DM") return;
-
-    if (filter.containsSwearWord(message.content)) {
-        await message.delete();
-        message.reply("https://youtu.be/un38j-pKLWE?t=358");
-    }
-});
-
-client.login("Your Discord Bot Token")
+filter.containsSwearWord("b @ d");
+// => true
 ```
 
-For web devs who are just looking for a way to censor stuff on their sites, here's an example for you guys!
+## Contact Me
 
-```js
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000
+- 👋 Need Help? [Join Our Discord Server](https://discord.gg/P2g24jp)!
 
-const { Filter } = require("swearfilter");
-
-const filter = new Filter({
-    swearWords: ["bad", "words", "here"],
-    uncensoredWords: ["any", "words", "to", "ignore", "here"],
-    smartDetect: true,
-    useBaseFilter: false
-});
-
-app.get('/containsBadWord/:phrase', function (req, res) {
-    if (filter.containsSwearWord(req.params.phrase)) {
-        res.redirect("https://youtu.be/un38j-pKLWE?t=358")
-    }
-    else res.send("This phrase is clean!")
-});
-
-app.listen(port, function () {
-    console.log(`App Listening at http://localhost:${port}`)
-});
-```
-
-## Need Help, want to Uncensor a Word, or Find any Bugs? Heck, even considering contributing? Join Our Discord Server!
-
-https://discord.gg/P2g24jp
+- 👾 Found a Bug or a Base Filter/Smart Detection Issue? [Open an Issue](https://github.com/WillTDA/Node-Swearfilter/issues), or Fork and [Submit a Pull Request](https://github.com/WillTDA/Node-Swearfilter/pulls) on our [GitHub Repository](https://github.com/WillTDA/Node-Swearfilter)!
