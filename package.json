@@ -1,6 +1,6 @@
 {
   "name": "swearfilter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Detect swear words, and handle strings containing them. Smart Detection helps to detect words using leetspeak, or any other word circumvention methods.",
   "main": "./src/index.js",
   "types": "./src/typings/index.d.ts",
