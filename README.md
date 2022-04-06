@@ -4,6 +4,10 @@
 
 Swear Filter is designed to detect swear words, and handle strings containing them.
 
+[![NPM](https://nodei.co/npm/swearfilter.png)](https://npmjs.com/package/swearfilter)
+
+[![Downloads](https://img.shields.io/npm/dt/swearfilter?logo=npm&style=flat-square)](https://npmjs.com/package/swearfilter) [![Discord Server](https://img.shields.io/discord/667479986214666272?logo=discord&logoColor=white&style=flat-square)](https://discord.gg/P2g24jp)
+
 ## Features
 
 - 🧠 <b>Smart Detection</b> | Detects words using leetspeak, or any other filter loopholes. It can also fix the Scunthorpe Problem, meaning words like "grass" won't get flagged.
@@ -90,7 +94,7 @@ const filter = new Filter({
     filter.censor("Hey, frick you beach, you are bad", { mask: "*", type: "character" }); // Censors all characters in bad words with "*".
     // => "Hey, ***** you *****, you are ***"
 
-    filter.censor("Hey, frick you beach, you are bad", { mask: "[bleep]", type: "word" }); // Censors all words in bad words with "[bleep]"
+    filter.censor("Hey, frick you beach, you are bad", { mask: "[bleep]", type: "word" }); // Censors all words in bad words with "[bleep]".
     // => "Hey, [bleep] you [bleep], you are [bleep]"
     ```
 
